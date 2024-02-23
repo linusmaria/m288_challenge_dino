@@ -19,6 +19,17 @@ function standUp(){
     aline.style.height = "70px";
 }
 
+// Funktion zum Zurücksetzen des Spiels
+function resetGame() {
+    // Setze die Position von aline und linus zurück
+    aline.style.top = "150px";
+    linus.style.left = "1000px"; // Setze linus außerhalb des Bildschirms
+    // Setze die Höhe von aline zurück
+    standUp(); // Stelle sicher, dass aline steht
+    // Setze den Zähler zurück
+    spaceBarCounter = 0;
+    updateCounter();
+}
 
 let isAlive = setInterval(function (){
     //get current aline Y position
@@ -29,8 +40,7 @@ let isAlive = setInterval(function (){
     if(linusLeft <50 && linusLeft > 0 && alineTop >=140){
      //collision
      alert("du bisch gfresse worde vom linus =(")
-     spaceBarCounter = 0;
-     updateCounter();
+     resetGame();
     }
 
 }, 10);
