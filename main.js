@@ -25,5 +25,9 @@ let isAlive = setInterval(function (){
 }, 10);
 
 document.addEventListener("keydown", function(event){
-    jump();
+    if(event.key === " "){
+        console.log('Leertaste wurde grdrückt'); 
+        jump();
+    }
 });
+
