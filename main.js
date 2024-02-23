@@ -47,7 +47,7 @@ function logToConsole(message) {
 // Funktion zum Aktualisieren des Zählers und Anzeigen im HTML
 function updateCounter() {
     var counterDiv = document.getElementById('counter');
-    counterDiv.textContent = 'Leertaste wurde ' + spaceBarCounter + ' Mal gedrückt.';
+    counterDiv.textContent = 'Score: ' + spaceBarCounter;
 }
 
 
