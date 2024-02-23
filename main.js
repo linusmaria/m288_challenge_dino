@@ -11,6 +11,15 @@ function jump(){
     }
 }
 
+function duck(){
+    aline.style.height = "50px"; 
+}
+
+function standUp(){
+    aline.style.heigt = "100px";
+}
+
+
 let isAlive = setInterval(function (){
     //get current aline Y position
     let alineTop = parseInt( window.getComputedStyle(aline).getPropertyValue("top"));
@@ -49,9 +58,17 @@ document.addEventListener("keydown", function(event){
         spaceBarCounter++;
         updateCounter();
     }
+    if(event.key === "ArrowDown"){ //Pfeiltaste wird gedrückt, Aline geht nach unten
+        duck();
+    }
+});
+
+document.addEventListener("keyup", function(event){
+    if(event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
+    standUp();
 });
 
 document.addEventListener("DOMContentLoaded", function(){
     updateCounter();
-})
+});
 
