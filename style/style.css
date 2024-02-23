@@ -3,8 +3,8 @@
     margin: 0;
 }
 
-body {
-    transform: scale(1.5); /* Ändere den Wert, um die Vergrößerung anzupassen */
+body{
+    transform: scale(1.5);
 }
 
 .game{
@@ -97,4 +97,8 @@ body {
     100%{
         left: -50px;
     }
+}
+
+#counter{
+    text-align: center;
 }
