@@ -76,6 +76,7 @@ document.addEventListener("keydown", function(event){
         spaceBarCounter++;
         updateCounter();
     }
+
     if(event.key === "ArrowDown"){ //Pfeiltaste wird gedrückt, Aline geht nach unten
         duck();
         
