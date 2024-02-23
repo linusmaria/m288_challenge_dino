@@ -12,6 +12,8 @@ body{
     height: 220px;
     border: 1px solid black;
     margin: auto;
+
+    overflow: hidden;
 }
 
 #aline{
@@ -69,7 +71,7 @@ body{
     background-size: 30px 30px;
     position: relative;
     top: 75px;
-    left: 460px;
+    left: 520px;
 
     animation: block 2s infinite linear;
     animation-delay: 5s;
@@ -82,7 +84,7 @@ body{
     background-size: 60px 50px;
     position: relative;
     top: -30px;
-    left: 500px;
+    left: 520px;
 
     animation: block 1.5s infinite linear;
     animation-delay: 14s;
