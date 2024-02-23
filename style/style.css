@@ -8,8 +8,8 @@ body{
 }
 
 .game{
-    width: 500px;
-    height: 200px;
+    width: 520px;
+    height: 220px;
     border: 1px solid black;
     margin: auto;
 }
@@ -72,7 +72,7 @@ body{
     left: 460px;
 
     animation: block 2s infinite linear;
-    animation-delay: 2s;
+    animation-delay: 5s;
 }
 
 #linusvogel{
@@ -81,11 +81,11 @@ body{
     background-image: url(/img/linusvogel.png);
     background-size: 60px 50px;
     position: relative;
-    top: -50px;
+    top: -30px;
     left: 500px;
 
     animation: block 1.5s infinite linear;
-    animation-delay: 4s;
+    animation-delay: 14s;
 }
 
 
