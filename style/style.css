@@ -3,6 +3,10 @@
     margin: 0;
 }
 
+body {
+    transform: scale(1.5); /* Ändere den Wert, um die Vergrößerung anzupassen */
+}
+
 .game{
     width: 500px;
     height: 200px;
