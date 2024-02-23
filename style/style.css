@@ -47,16 +47,44 @@
 }
 
 #linus{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-image: url(/img/linus.png);
-    background-size: 40px 40px;
+    background-size: 50px 50px;
     position: relative;
-    top: 110px;
+    top: 100px;
     left: 460px;
 
     animation: block 1s infinite linear ;
 }
+
+#linus2{
+    width: 30px;
+    height: 30px;
+    background-image: url(/img/linus2.png);
+    background-size: 30px 30px;
+    position: relative;
+    top: 75px;
+    left: 460px;
+
+    animation: block 2s infinite linear;
+    animation-delay: 2s;
+}
+
+#linusvogel{
+    width: 60px;
+    height: 50px;
+    background-image: url(/img/linusvogel.png);
+    background-size: 60px 50px;
+    position: relative;
+    top: -50px;
+    left: 500px;
+
+    animation: block 1.5s infinite linear;
+    animation-delay: 4s;
+}
+
+
 
 @keyframes block{
     0% {
