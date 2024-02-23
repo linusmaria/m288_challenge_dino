@@ -12,11 +12,11 @@ function jump(){
 }
 
 function duck(){
-    aline.style.height = "50px"; 
+    aline.style.height = "40px"; 
 }
 
 function standUp(){
-    aline.style.heigt = "100px";
+    aline.style.height = "70px";
 }
 
 
@@ -60,6 +60,7 @@ document.addEventListener("keydown", function(event){
     }
     if(event.key === "ArrowDown"){ //Pfeiltaste wird gedrückt, Aline geht nach unten
         duck();
+        
     }
 });
 
