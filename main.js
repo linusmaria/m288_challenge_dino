@@ -23,7 +23,7 @@ function standUp(){
 function resetGame() {
     // Setze die Position von aline und linus zurück
     aline.style.top = "150px";
-    linus.style.left = "1000px"; // Setze linus außerhalb des Bildschirms
+    linus.style.left = "460px"; // Setze linus außerhalb des Bildschirms
     // Setze die Höhe von aline zurück
     standUp(); // Stelle sicher, dass aline steht
     // Setze den Zähler zurück
