@@ -6,6 +6,10 @@ document.getElementById('startButton').addEventListener('click', startAnimation)
     function startAnimation() {
         var box = document.getElementById('animatedBox');
         box.style.animation = 'move 2s ease-in-out forwards'; // Hier wird Ihre Animationsklasse ('move') verwendet
+
+        var startButton = document.getElementById('startButton');
+        startButton.style.display = 'none';
+
         // Fügen Sie hier weitere Aktionen nach dem Klick auf "Start" hinzu
     
 
