@@ -75,7 +75,20 @@ function updateCounter() {
     counterDiv.textContent = 'Score: ' + spaceBarCounter;
 }
 
-var duckIntensity = 0;
+var aline = document.getElementById('aline')
+var isDucking = false;
+
+function duck(){
+    if(!isDucking){
+        aline.style.height = '10px'
+        isDucking = true
+    }
+}
+
+function standUp(){
+    aline.style.height = '50px';
+    isDucking = false;
+}
 
 document.addEventListener("keydown", function(event){
     if(event.key === " "){
@@ -86,7 +99,6 @@ document.addEventListener("keydown", function(event){
     }
 
     if(event.key === "ArrowDown"){ //Pfeiltaste wird gedrückt, Aline geht nach unten
-        duckIntensity = 1;
         duck();
         
     }
@@ -94,13 +106,10 @@ document.addEventListener("keydown", function(event){
 
 document.addEventListener("keyup", function(event){
     if(event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
-    duckIntensity = 0;
     standUp();
 });
 
-function duck(){
-    
-}
+
 
 document.addEventListener("DOMContentLoaded", function(){
     updateCounter();
