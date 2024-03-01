@@ -120,3 +120,25 @@ document.addEventListener("DOMContentLoaded", function(){
 
 }
 
+// Funktion zum Laden des Highscores aus dem localStorage
+function loadHighscore() {
+    return localStorage.getItem('highscore') || 0;
+}
+
+// Funktion zum Speichern des Highscores im localStorage
+function saveHighscore(score) {
+    localStorage.setItem('highscore', score);
+}
+
+// Funktion zum Überprüfen und Aktualisieren des Highscores
+function updateHighscore(score) {
+    var highscore = loadHighscore(); // Lade den aktuellen Highscore
+    if (score > highscore) {
+        saveHighscore(score); // Speichere den neuen Highscore, wenn die erreichte Punktzahl höher ist
+        console.log("Neuer Highscore: " + score);
+    }
+}
+
+// Beispiel: Rufe die Funktion updateHighscore mit der erreichten Punktzahl auf
+var currentScore = 1000; // Annahme: Der Spieler hat 1000 Punkte erreicht
+updateHighscore(currentScore); // Überprüfe und aktualisiere den Highscore
