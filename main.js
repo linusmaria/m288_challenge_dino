@@ -37,6 +37,9 @@ function resetGame() {
     // Setze den Zähler zurück
     spaceBarCounter = 0;
     updateCounter();
+
+     // Lade die Seite neu
+     location.reload();
 }
 
 let isAlive = setInterval(function (){
