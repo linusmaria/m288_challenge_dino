@@ -24,11 +24,21 @@ function jump(){
 }
 
 function duck(){
-    aline.style.height = "40px"; 
+    if(!isDucking){
+        aline.style.height = '50px';
+        linus.style.bottom = '100px';
+        linus2.style.bottom = '75px';
+        linusvorgel.style.bottom = '-30px';
+        isDucking = true;
+    }
 }
 
 function standUp(){
-    aline.style.height = "70px";
+    aline.style.height = '70px';
+    linus.style.top = '100px';
+    linus2.style.top = '75px';
+    linusvorgel.style.top = '-30px';
+    isDucking = false;
 }
 
 // Funktion zum Zurücksetzen des Spiels
@@ -76,19 +86,12 @@ function updateCounter() {
 }
 
 var aline = document.getElementById('aline')
+var linus = document.getElementById('linus')
+var linus2 = document.getElementById('linus2')
+var linusvorgel = document.getElementById('linusvogel')
 var isDucking = false;
 
-function duck(){
-    if(!isDucking){
-        aline.style.height = '10px'
-        isDucking = true
-    }
-}
 
-function standUp(){
-    aline.style.height = '50px';
-    isDucking = false;
-}
 
 document.addEventListener("keydown", function(event){
     if(event.key === " "){
@@ -116,3 +119,4 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 }
+
