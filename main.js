@@ -75,6 +75,7 @@ function updateCounter() {
     counterDiv.textContent = 'Score: ' + spaceBarCounter;
 }
 
+var duckIntensity = 0;
 
 document.addEventListener("keydown", function(event){
     if(event.key === " "){
@@ -85,6 +86,7 @@ document.addEventListener("keydown", function(event){
     }
 
     if(event.key === "ArrowDown"){ //Pfeiltaste wird gedrückt, Aline geht nach unten
+        duckIntensity = 1;
         duck();
         
     }
@@ -92,8 +94,13 @@ document.addEventListener("keydown", function(event){
 
 document.addEventListener("keyup", function(event){
     if(event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
+    duckIntensity = 0;
     standUp();
 });
+
+function duck(){
+    
+}
 
 document.addEventListener("DOMContentLoaded", function(){
     updateCounter();
