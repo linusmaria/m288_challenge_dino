@@ -75,6 +75,20 @@ function updateCounter() {
     counterDiv.textContent = 'Score: ' + spaceBarCounter;
 }
 
+var aline = document.getElementById('aline')
+var isDucking = false;
+
+function duck(){
+    if(!isDucking){
+        aline.style.height = '10px'
+        isDucking = true
+    }
+}
+
+function standUp(){
+    aline.style.height = '50px';
+    isDucking = false;
+}
 
 document.addEventListener("keydown", function(event){
     if(event.key === " "){
@@ -94,6 +108,8 @@ document.addEventListener("keyup", function(event){
     if(event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
     standUp();
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function(){
     updateCounter();
