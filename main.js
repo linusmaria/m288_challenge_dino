@@ -3,6 +3,16 @@ const linus = document.getElementById("linus");
 const linus2 = document.getElementById("linus2");
 const linusvogel = document.getElementById("linusvogel");
 
+/** var canvas = document.getElementById('game');
+var ctx = canvas.getContext("2d");
+var bgImage = new Image();
+bgImage.src = "img/background.png";
+ */
+
+
+
+
+
 document.getElementById('startButton').addEventListener('click', startAnimation);
 
 function startAnimation() {
@@ -14,8 +24,48 @@ function startAnimation() {
 
     // Fügen Sie hier weitere Aktionen nach dem Klick auf "Start" hinzu
 
+    /**  var bg1 = {
+        width: 520,
+        height: 220,
+        x: 0,
+        y: 0,
+    }
+    
+    var bg2 = {
+        width: 520,
+        height: 220,
+        x: 520,
+        y: 0,
+    }
+    
+    var bg3 = {
+        width: 520,
+        height: 220,
+        x: 1040,
+        y: 0,
+    }
+    
+    var interval = setInterval(function() {
+        bg1.x -= 20;
+        bg2.x -= 20;
+        bg3.x -= 20;
+        if (bg1.x + bg1.witdh <= 0) {
+            bg1.x = bg3.x + bg3.width;
+        }
+        if (bg2.x + bg2.witdh <= 0) {
+            bg2.x = bg1.x + bg1.width;
+        }
+        if (bg3.x + bg3.witdh <= 0) {
+            bg3.x = bg2.x + bg2.width;
+        }
+        ctx.drawImage(bgImage, bg1.x, bg1.y)
+        ctx.drawImage(bgImage, bg2.x, bg2.y)
+        ctx.drawImage(bgImage, bg3.x, bg3.y)
+    }, 50);
+    */
 
     
+
 
     //The proper game
     loopwindow.requestAnimationFrame(gameLoop);
