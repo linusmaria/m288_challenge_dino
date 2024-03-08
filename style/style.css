@@ -89,8 +89,6 @@ p {
     position: relative;
     top: 100px;
     left: 460px;
-
-    animation: block 1.3s infinite linear ;
 }
 
 #linus2{
@@ -101,9 +99,6 @@ p {
     position: relative;
     top: 75px;
     left: 520px;
-
-    animation: block 2s infinite linear;
-    animation-delay: 5s;
 }
 
 #linusvogel{
@@ -114,9 +109,6 @@ p {
     position: relative;
     top: -30px;
     left: 520px;
-
-    animation: block 1.5s infinite linear;
-    animation-delay: 14s;
 }
 
 
