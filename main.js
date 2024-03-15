@@ -3,6 +3,14 @@ const linus = document.getElementById("linus");
 const linus2 = document.getElementById("linus2");
 const linusvogel = document.getElementById("linusvogel");
 
+// Definition von loopwindow als benutzerdefiniertes Objekt
+const loopwindow = {
+    // Eigenschaft, um requestAnimationFrame aufzurufen
+    requestAnimationFrame: function (callback) {
+        return window.requestAnimationFrame(callback);
+    }
+};
+
 // background
 
 var canvas = document.getElementById('canvas');
@@ -67,6 +75,9 @@ function startAnimation() {
     loopwindow.requestAnimationFrame(gameLoop);
     function gameLoop() {
         draw();
+        moveEnemies();
+        checkCollisions();
+        requestAnimationFrame(gameLoop);
 
         //enemies
         const enemies = [
@@ -90,20 +101,63 @@ function startAnimation() {
             function checkCollision() {
                 var rect1 = alineTop.getBoundingClientRect();
                 var rect2 = enemyLeft.getBoundingClientRect();
-        
+
                 if (rect1.left < rect2.left + rect2.width &&
                     rect1.left + rect1.width > rect2.left &&
                     rect1.top < rect2.top + rect2.height &&
                     rect1.top + rect1.height > rect2.top) {
                     return true; // Collision detected
                 }
-        
+
                 return false; // No collision
             }
 
         });
 
         //controls
+
+        function draw() {
+            // Implementiere deine Zeichenlogik hier
+            // Beispiel: Zeichne den Hintergrund oder andere Spielobjekte
+            console.log('Drawing...'); // Beispiel-Ausgabe für die Konsolenausgabe
+        }
+
+        function moveEnemies() {
+            const enemies = [linus, linus2, linusvogel]; // Liste der Gegner
+
+            enemies.forEach(enemy => {
+                // Bewege jeden Gegner nach links
+                let leftPosition = parseInt(enemy.style.left) || 0; // Aktuelle linke Position des Gegners
+                leftPosition -= 10; // Geschwindigkeit der Bewegung nach links
+
+                // Überprüfe, ob der Gegner das Ende des Bildschirms erreicht hat
+                if (leftPosition <= -520) {
+                    leftPosition = 460; // Setze den Gegner zurück auf die rechte Seite des Bildschirms
+                }
+
+                // Setze die neue Position des Gegners
+                enemy.style.left = leftPosition + 'px';
+            });
+        }
+
+        // Definiere die Funktion checkCollisions, um Kollisionen zwischen dem Spieler und den Gegnern zu überprüfen
+        function checkCollisions() {
+            const alineRect = aline.getBoundingClientRect(); // Die Begrenzungen des Spielers (aline)
+            const enemies = [linus, linus2, linusvogel]; // Liste der Gegner
+
+            enemies.forEach(enemy => {
+                const enemyRect = enemy.getBoundingClientRect(); // Die Begrenzungen des aktuellen Gegners
+
+                // Überprüfe, ob es eine Kollision zwischen dem Spieler und dem aktuellen Gegner gibt
+                if (alineRect.left < enemyRect.left + enemyRect.width &&
+                    alineRect.left + alineRect.width > enemyRect.left &&
+                    alineRect.top < enemyRect.top + enemyRect.height &&
+                    alineRect.top + alineRect.height > enemyRect.top) {
+                    resetGame(); // Wenn eine Kollision festgestellt wird, rufe die Funktion zum Zurücksetzen des Spiels auf
+                }
+            });
+        }
+
         function jump() {
             if (aline.classList != "jump") {
                 aline.classList.add("jump");
@@ -113,6 +167,20 @@ function startAnimation() {
                 }, 300);
             }
         }
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === " ") {
+                console.log('Leertaste wurde grdrückt');
+                jump();
+                spaceBarCounter++;
+                updateCounter();
+            }
+
+            if (event.key === "ArrowDown") { //Pfeiltaste wird gedrückt, Aline geht nach unten
+                duck();
+
+            }
+        });
 
         function duck() {
             if (!isDucking) {
@@ -134,6 +202,7 @@ function startAnimation() {
 
         window.requestAnimationFrame(gameLoop);
     }
+
 
     // Funktion zum Zurücksetzen des Spiels
     function resetGame() {
@@ -192,19 +261,7 @@ function startAnimation() {
 
 
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === " ") {
-            console.log('Leertaste wurde grdrückt');
-            jump();
-            spaceBarCounter++;
-            updateCounter();
-        }
 
-        if (event.key === "ArrowDown") { //Pfeiltaste wird gedrückt, Aline geht nach unten
-            duck();
-
-        }
-    });
 
     document.addEventListener("keyup", function (event) {
         if (event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
