@@ -3,13 +3,51 @@ const linus = document.getElementById("linus");
 const linus2 = document.getElementById("linus2");
 const linusvogel = document.getElementById("linusvogel");
 
-/** var canvas = document.getElementById('game');
+// background
+
+var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext("2d");
 var bgImage = new Image();
-bgImage.src = "img/background.png";
- */
+bgImage.src = "/img/background.png";
 
+var bg1 = {
+    width: 520,
+    height: 220,
+    x: 0,
+    y: 0,
+};
 
+var bg2 = {
+    width: 520,
+    height: 220,
+    x: 520,
+    y: 0,
+};
+
+var bg3 = {
+    width: 520,
+    height: 220,
+    x: 1040,
+    y: 0,
+};
+
+var interval = setInterval(function () {
+    bg1.x -= 20;
+    bg2.x -= 20;
+    bg3.x -= 20;
+    if (bg1.x + bg1.width <= 0) {
+        bg1.x = bg3.x + bg3.width;
+    }
+    if (bg2.x + bg2.width <= 0) {
+        bg2.x = bg1.x + bg1.width;
+    }
+    if (bg3.x + bg3.width <= 0) {
+        bg3.x = bg2.x + bg2.width;
+    }
+    ctx.drawImage(bgImage, bg1.x, bg1.y);
+    ctx.drawImage(bgImage, bg2.x, bg2.y);
+    ctx.drawImage(bgImage, bg3.x, bg3.y);
+}, 50);
 
 
 
@@ -24,48 +62,6 @@ function startAnimation() {
 
     // Fügen Sie hier weitere Aktionen nach dem Klick auf "Start" hinzu
 
-    /**  var bg1 = {
-        width: 520,
-        height: 220,
-        x: 0,
-        y: 0,
-    }
-    
-    var bg2 = {
-        width: 520,
-        height: 220,
-        x: 520,
-        y: 0,
-    }
-    
-    var bg3 = {
-        width: 520,
-        height: 220,
-        x: 1040,
-        y: 0,
-    }
-    
-    var interval = setInterval(function() {
-        bg1.x -= 20;
-        bg2.x -= 20;
-        bg3.x -= 20;
-        if (bg1.x + bg1.witdh <= 0) {
-            bg1.x = bg3.x + bg3.width;
-        }
-        if (bg2.x + bg2.witdh <= 0) {
-            bg2.x = bg1.x + bg1.width;
-        }
-        if (bg3.x + bg3.witdh <= 0) {
-            bg3.x = bg2.x + bg2.width;
-        }
-        ctx.drawImage(bgImage, bg1.x, bg1.y)
-        ctx.drawImage(bgImage, bg2.x, bg2.y)
-        ctx.drawImage(bgImage, bg3.x, bg3.y)
-    }, 50);
-    */
-
-    
-
 
     //The proper game
     loopwindow.requestAnimationFrame(gameLoop);
@@ -79,25 +75,30 @@ function startAnimation() {
             linusvogel
         ];
 
-        enemies.forEach(enemies => {
-            linus.left -= 10;
-            if (linus.left < 100 > linus.left >= 1000);
-            linus2.left -= 10;
-            if (linus2.left < 100 > linus2.left >= 1000);
-            linusvogel.left -= 10;
-            if (linusvogel.left < 100 > linusvogel.left >= 1000);
+        enemies.forEach(enemy => {
+            enemy.left -= 10;
+            if (enemy.left <= -520)
+                enemy.left = 460
         });
 
-        enemies.forEach(enemies => {
+        enemies.forEach(enemy => {
             //get current aline Y position
             let alineTop = parseInt(window.getComputedStyle(aline).getPropertyValue("top"));
             //get current enemies X position
-            let enemies = parseInt(window.getComputedStyle(enemies).getPropertyValue("left"));
+            let enemyLeft = parseInt(window.getComputedStyle(enemy).getPropertyValue("left"));
             //detect collision
-            if (enemies < 50 && enemies > 0 && alineTop >= 140) {
-                //collision
-                alert("du bisch gfresse worde vom linus =(")
-                resetGame();
+            function checkCollision() {
+                var rect1 = alineTop.getBoundingClientRect();
+                var rect2 = enemyLeft.getBoundingClientRect();
+        
+                if (rect1.left < rect2.left + rect2.width &&
+                    rect1.left + rect1.width > rect2.left &&
+                    rect1.top < rect2.top + rect2.height &&
+                    rect1.top + rect1.height > rect2.top) {
+                    return true; // Collision detected
+                }
+        
+                return false; // No collision
             }
 
         });
@@ -106,7 +107,7 @@ function startAnimation() {
         function jump() {
             if (aline.classList != "jump") {
                 aline.classList.add("jump");
-    
+
                 setTimeout(function () {
                     aline.classList.remove("jump");
                 }, 300);
@@ -166,7 +167,7 @@ function startAnimation() {
     */
 
 
-    
+
 
     var spaceBarCounter = 0; // Variable zur Verfolgung der Anzahl von Leertastendrücken
 
