@@ -43,9 +43,9 @@ var bg3 = {
 };
 
 var interval = setInterval(function () {
-    bg1.x -= 20;
-    bg2.x -= 20;
-    bg3.x -= 20;
+    bg1.x -= 10;
+    bg2.x -= 10;
+    bg3.x -= 10;
     if (bg1.x + bg1.width <= 0) {
         bg1.x = bg3.x + bg3.width;
     }
@@ -130,6 +130,11 @@ function startAnimation() {
         isDucking = false;
     }
 
+    document.addEventListener("keyup", function (event) {
+        if (event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
+            standUp();
+    });
+
     // Funktion zum Zurücksetzen des Spiels
     function resetGame() {
         // Setze die Position von aline und linus zurück
@@ -145,9 +150,11 @@ function startAnimation() {
         location.reload();
     }
 
+
     
 
-    /** VERSION 2
+    // VERSION 2
+    /** 
     loopwindow.requestAnimationFrame(gameLoop);
     function gameLoop() {
         draw();
@@ -216,33 +223,12 @@ function startAnimation() {
             });
         }
 
-        // Definiere die Funktion checkCollisions, um Kollisionen zwischen dem Spieler und den Gegnern zu überprüfen
-        function checkCollisions() {
-            const alineRect = aline.getBoundingClientRect(); // Die Begrenzungen des Spielers (aline)
-            const enemies = [linus, linus2, linusvogel]; // Liste der Gegner
-
-            enemies.forEach(enemy => {
-                const enemyRect = enemy.getBoundingClientRect(); // Die Begrenzungen des aktuellen Gegners
-
-                // Überprüfe, ob es eine Kollision zwischen dem Spieler und dem aktuellen Gegner gibt
-                if (alineRect.left < enemyRect.left + enemyRect.width &&
-                    alineRect.left + alineRect.width > enemyRect.left &&
-                    alineRect.top < enemyRect.top + enemyRect.height &&
-                    alineRect.top + alineRect.height > enemyRect.top) {
-                    resetGame(); // Wenn eine Kollision festgestellt wird, rufe die Funktion zum Zurücksetzen des Spiels auf
-                }
-            });
-        }
-
-        
-
         window.requestAnimationFrame(gameLoop);
-    }*/
 
+    }
 
-    /** 
-        function resetGame() {
-            Setze die Position von aline und linus zurück
+        /** function resetGame() {
+            // Setze die Position von aline und linus zurück
             aline.style.top = "150px";
             linus.style.left = "460px"; // Setze linus außerhalb des Bildschirms
             // Setze die Höhe von aline zurück
@@ -253,11 +239,9 @@ function startAnimation() {
     
             // Lade die Seite neu
             location.reload();
-        }
-        */
+        } */
 
-
-
+        
 
     var spaceBarCounter = 0; // Variable zur Verfolgung der Anzahl von Leertastendrücken
 
@@ -273,22 +257,6 @@ function startAnimation() {
         var counterDiv = document.getElementById('counter');
         counterDiv.textContent = 'Score: ' + spaceBarCounter;
     }
-
-    var aline = document.getElementById('aline')
-    var linus = document.getElementById('linus')
-    var linus2 = document.getElementById('linus2')
-    var linusvorgel = document.getElementById('linusvogel')
-    var isDucking = false;
-
-
-
-
-
-    document.addEventListener("keyup", function (event) {
-        if (event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
-            standUp();
-    });
-
 
 
     document.addEventListener("DOMContentLoaded", function () {

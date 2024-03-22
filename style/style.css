@@ -46,14 +46,29 @@ a {
     margin-bottom: 50px;
 }
 
+.gamesection {
+    display: flex;
+    justify-content: center;
+}
+
 .game{
     width: 520px;
     height: 220px;
     border: 1px solid black;
-    margin: auto;
 
     overflow: hidden;
+    position: absolute ;
 }
+
+.gamecanvas{
+    width: 520px;
+    height: 220px;
+
+    overflow: hidden;
+    position: inherit;
+}
+
+
 
 #aline{
     width: 70px;
