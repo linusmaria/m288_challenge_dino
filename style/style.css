@@ -31,6 +31,16 @@ p {
     font-family: 'Intro Light';
 }
 
+a {
+    font-family: 'Intro Bold';
+    font-size: larger;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+
+    padding: 15px 30px 15px 30px;
+}
+
 .headertext {
     text-align: center;
     margin-bottom: 50px;
@@ -89,6 +99,10 @@ p {
     position: relative;
     top: 100px;
     left: 460px;
+
+
+    /* VERSION 1 */
+    animation: block 1s infinite linear;
 }
 
 #linus2{
@@ -99,6 +113,7 @@ p {
     position: relative;
     top: 75px;
     left: 520px;
+    
 }
 
 #linusvogel{
@@ -111,6 +126,8 @@ p {
     left: 520px;
 }
 
+
+/* VERSION 1 */
 @keyframes block{
     0% {
         left: 460px;
