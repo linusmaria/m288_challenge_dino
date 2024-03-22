@@ -75,6 +75,7 @@ function startAnimation() {
 
 
     // VERSION 1
+    
     let isAlive = setInterval(function () {
         //get current aline Y position
         let alineTop = parseInt(window.getComputedStyle(aline).getPropertyValue("top"));
@@ -112,28 +113,6 @@ function startAnimation() {
         }
     });
 
-    function duck() {
-        if (!isDucking) {
-            aline.style.height = '50px';
-            linus.style.bottom = '100px';
-            linus2.style.bottom = '75px';
-            linusvorgel.style.bottom = '-30px';
-            isDucking = true;
-        }
-    }
-
-    function standUp() {
-        aline.style.height = '70px';
-        linus.style.top = '100px';
-        linus2.style.top = '75px';
-        linusvorgel.style.top = '-30px';
-        isDucking = false;
-    }
-
-    document.addEventListener("keyup", function (event) {
-        if (event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
-            standUp();
-    });
 
     // Funktion zum Zurücksetzen des Spiels
     function resetGame() {
@@ -151,10 +130,11 @@ function startAnimation() {
     }
 
 
+
     
 
     // VERSION 2
-    /** 
+     /**
     loopwindow.requestAnimationFrame(gameLoop);
     function gameLoop() {
         draw();
@@ -226,6 +206,55 @@ function startAnimation() {
         window.requestAnimationFrame(gameLoop);
 
     }
+
+    function jump() {
+        if (aline.classList != "jump") {
+            aline.classList.add("jump");
+
+            setTimeout(function () {
+                aline.classList.remove("jump");
+            }, 300);
+        }
+    }
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === " ") {
+            console.log('Leertaste wurde grdrückt');
+            jump();
+            spaceBarCounter++;
+            updateCounter();
+        }
+
+        if (event.key === "ArrowDown") { //Pfeiltaste wird gedrückt, Aline geht nach unten
+            duck();
+
+        }
+    });
+
+    // ducken?
+
+    function duck() {
+        if (!isDucking) {
+            aline.style.height = '50px';
+            linus.style.bottom = '100px';
+            linus2.style.bottom = '75px';
+            linusvorgel.style.bottom = '-30px';
+            isDucking = true;
+        }
+    }
+
+    function standUp() {
+        aline.style.height = '70px';
+        linus.style.top = '100px';
+        linus2.style.top = '75px';
+        linusvorgel.style.top = '-30px';
+        isDucking = false;
+    }
+
+    document.addEventListener("keyup", function (event) {
+        if (event.key === "ArrowDown") //Pfeiltaste wird losgelassen, Aline geht wieder nach oben
+            standUp();
+    });
 
         /** function resetGame() {
             // Setze die Position von aline und linus zurück
