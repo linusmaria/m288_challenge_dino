@@ -37,7 +37,9 @@ Mit einer kleineren Verzögerung funktioniert das auch. In 10 Testversuchen wurd
 Ursprünglich war der Plan, mehrere Gegner zu haben, die alle zu random Zeiten, unterschiedlichen Geschwindigkeiten und "Flughöhen" auf Aline zugerast kommen. Bis auf die letzten zwei Stunden offiziell im Modul waren wir drauf und dran, es mit einem Gameloop umzusetzen. Auch eine Duck-Funktion wollten wir für einen Vogel einbauen. Als es dann eine Woche vor Abgabe immer noch nicht funktioniert hat, wählten wir die simplere Variante, die halt auch wirklich läuft.
 
 #### 4. Fonts
-Wir benutzen ausschliesslich die SBW Fonts. Das heisst Intro Light für Paragraphe, Intro Bold für Untertitel, und Geomanist Black für die Titel. Einzig bei der Geomanist Black zeigt es immer wieder eine Warnung an, dass sie nicht akzeptiert wird. Bei manchen Browsern und Laptopts geht sie, bei manchen nicht.
+Wir benutzen ausschliesslich die SBW Fonts. Das heisst Intro Light für Paragraphe, Intro Bold für Untertitel, und Geomanist Black für die Titel. Einzig bei der Geomanist Black zeigte es bei ein paar Browsern und Laptops eine Warnung an, dass sie nicht akzeptiert wird -> und sie konnte dann auch nicht angezeigt werden.
+
+Nach einem Umändern von "Geomanist-Black#2" zu "Geomanist-Black" war jedoch alles wieder gut.
 
 #### 5. Hintergrund
 Er ist endlos und scrollt von rechts nach links. Man sieht den Cut nicht. Und das funktioniert auch! Auch immer noch nach mehreren Reloads der Seite im Chrome, Firefox und Edge, und einer halben Minute Beobachtung, ob sich ein Cut bemerkbar macht, oder ob der Background irgendwann aufhört. Aber es funktionert.
