@@ -1,7 +1,5 @@
 const aline = document.getElementById("aline");
 const linus = document.getElementById("linus");
-const linus2 = document.getElementById("linus2");
-const linusvogel = document.getElementById("linusvogel");
 function redirect() {
     window.location.href = 'gameover.html'
 };
@@ -60,8 +58,6 @@ var interval = setInterval(function () {
     ctx.drawImage(bgImage, bg3.x, bg3.y);
 }, 50);
 
-
-
 document.getElementById('startButton').addEventListener('click', startAnimation);
 
 function startAnimation() {
@@ -73,9 +69,6 @@ function startAnimation() {
 
     // Fügen Sie hier weitere Aktionen nach dem Klick auf "Start" hinzu
 
-
-    // VERSION 1
-    
     let isAlive = setInterval(function () {
         //get current aline Y position
         let alineTop = parseInt(window.getComputedStyle(aline).getPropertyValue("top"));
@@ -109,7 +102,6 @@ function startAnimation() {
 
     });
 
-
     // Funktion zum Zurücksetzen des Spiels
     function resetGame() {
         // Setze die Position von aline und linus zurück
@@ -125,7 +117,6 @@ function startAnimation() {
         location.reload();
     }
         
-
     var spaceBarCounter = 0; // Variable zur Verfolgung der Anzahl von Leertastendrücken
 
     // Funktion zum Anzeigen von Nachrichten in der Konsole
@@ -140,7 +131,6 @@ function startAnimation() {
         var counterDiv = document.getElementById('counter');
         counterDiv.textContent = 'Score: ' + spaceBarCounter;
     }
-
 
     document.addEventListener("DOMContentLoaded", function () {
         updateCounter();

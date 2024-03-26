@@ -121,28 +121,6 @@ a {
     
 }
 
-#linus2{
-    width: 30px;
-    height: 30px;
-    background-image: url(/img/linus2.png);
-    background-size: 30px 30px;
-    position: relative;
-    top: 75px;
-    left: 520px;
-    
-}
-
-#linusvogel{
-    width: 60px;
-    height: 50px;
-    background-image: url(/img/linusvogel.png);
-    background-size: 60px 50px;
-    position: relative;
-    top: -30px;
-    left: 520px;
-}
-
-
 /* VERSION 1 */
 @keyframes block{
     0% {
@@ -157,12 +135,6 @@ a {
     text-align: center;
     font-family: 'Geomanist';
     font-size: larger;
-}
-
-#highscore{
-    text-align: center;
-    font-family: 'Geomanist';
-    font-size: larger; 
 }
 
 #startButton {
