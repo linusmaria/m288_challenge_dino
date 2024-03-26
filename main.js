@@ -4,7 +4,7 @@ const linus2 = document.getElementById("linus2");
 const linusvogel = document.getElementById("linusvogel");
 function redirect() {
     window.location.href = 'gameover.html'
-}
+};
 
 // Definition von loopwindow als benutzerdefiniertes Objekt
 const loopwindow = {
